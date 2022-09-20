@@ -18,12 +18,11 @@ Result:
 ```
 key: value
 list:
-        name: Hello
-        attr_A: foo
-        attr_B: bar
-
-        name: World
-        attr_A: bar
-        attr_B: foo
+    - name: Hello
+      attr_A: foo
+      attr_B: bar
+    - name: World
+      attr_A: bar
+      attr_B: foo
 ```
 
