@@ -4,7 +4,7 @@ from typing import Any
 OUTLIST = []
 
 
-def print(data: Any, ind_char: str=' ', ind_incr: int=6, item_sep: str='\n', top_level_sep: str=None, list_item_char: str=' - ', depth: int=None, print_func=print):
+def print(data: Any, ind_char: str=' ', ind_incr: int=6, item_sep: str='\n', top_level_sep: str='', list_item_char: str=' - ', depth: int=None, print_func=print):
     """
     Print data structures in a clean, easy to read format.
 
@@ -25,7 +25,7 @@ def print(data: Any, ind_char: str=' ', ind_incr: int=6, item_sep: str='\n', top
     print_func(output)
 
 
-def format_output(data: Any, ind_char: str=' ', ind_incr: int=6, item_sep: str='\n', top_level_sep: str=None, list_item_char: str=' - ', depth: int=None) -> str:
+def format_output(data: Any, ind_char: str=' ', ind_incr: int=6, item_sep: str='\n', top_level_sep: str='', list_item_char: str=' - ', depth: int=None) -> str:
     """
     Print data structures in a clean, easy to read format.
 
@@ -52,7 +52,7 @@ def format_output(data: Any, ind_char: str=' ', ind_incr: int=6, item_sep: str='
     return output
 
 
-def _format(data: Any, _indent: int=0, ind_char: str=' ', ind_incr: int=6, top_level_sep: str=None, list_item_char: str='- ', _parent_is_list: bool=None, depth: int=None):
+def _format(data: Any, _indent: int=0, ind_char: str=' ', ind_incr: int=6, top_level_sep: str='', list_item_char: str='- ', _parent_is_list: bool=None, depth: int=None):
     """Recursive function to process an input object for printing"""
     if depth:
         if depth < _indent:
@@ -110,8 +110,9 @@ def _format(data: Any, _indent: int=0, ind_char: str=' ', ind_incr: int=6, top_l
     elif type(data) in (list, set, tuple):
         _parent_is_list = True
         for i in data:
-            if _indent == 0 and top_level_sep:
+            if _indent == 0:
                 OUTLIST.append(top_level_sep)
+                _parent_is_list = False
             _format(i,
                      _indent, 
                      ind_char=ind_char,
