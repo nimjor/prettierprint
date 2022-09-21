@@ -49,6 +49,7 @@ def format_output(data: Any, ind_char: str=' ', ind_incr: int=6, item_sep: str='
             output += o
         else:
             output += (o + item_sep)
+    OUTLIST.clear()
     return output
 
 
