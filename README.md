@@ -71,7 +71,7 @@ item = {'type': 'cr2', 'size': '29 MB', 'bytes': 30408704, 'path': '~/Pictures/2
 pretty(item, print_func=rprint)
 ```
 Result:
-<img src="http://github.com/nimjor/prettierprint/blob/main/example_rich.png?raw=true" width="200" />
+<img src="https://raw.githubusercontent.com/nimjor/prettierprint/main/example_rich.png" width="200" />
 
 ### Reference
 **print**: Pretty prints a Python object
